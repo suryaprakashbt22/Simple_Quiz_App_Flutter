@@ -18,32 +18,116 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var _i = 0;
   var _totalScore = 0;
-  /*var*/ final _questions = const [
+  var _questions = [
     {
-      "qText": "What\'s the Capital of India?",
+      "qText":
+          "Which data structure allows deleting data elements from front and inserting at rear?",
       "Answerq": [
-        {"text": "Mumbai", "score": 0},
-        {"text": "Indore", "score": 0},
-        {"text": "Delhi", "score": 10},
-        {"text": "Kolkata", "score": 0}
+        {"text": "Queues", "score": 10},
+        {"text": "BST", "score": 0},
+        {"text": "Stacks", "score": 0},
+        {"text": "None of these", "score": 0}
       ]
     },
     {
-      "qText": "What\'s the National Animal of India?",
+      "qText": "Which of the following data structure is non-linear type?",
       "Answerq": [
-        {"text": "Tiger", "score": 10},
-        {"text": "Elephant", "score": 0},
-        {"text": "Lion", "score": 0},
-        {"text": "Giraffe", "score": 0}
+        {"text": "Strings", "score": 0},
+        {"text": "Stacks", "score": 0},
+        {"text": "Arrays", "score": 0},
+        {"text": "None of these", "score": 10}
       ]
     },
     {
-      "qText": "What\'s the National language of India?",
+      "qText": "The depth of a complete binary tree is given by::",
       "Answerq": [
-        {"text": "Bengali", "score": 0},
-        {"text": "Hindi", "score": 10},
-        {"text": "Kannada", "score": 0},
-        {"text": "Marathi", "score": 0}
+        {"text": "n log n", "score": 0},
+        {"text": "n log n + 1", "score": 0},
+        {"text": "log n", "score": 0},
+        {"text": "log n + 1", "score": 10}
+      ]
+    },
+    {
+      "qText": "The two main measures for the efficiency of an algoritm are::",
+      "Answerq": [
+        {"text": "Processor and Memory", "score": 0},
+        {"text": "Complexity & Capacity", "score": 0},
+        {"text": "Time & Space", "score": 10},
+        {"text": "Data & Space", "score": 0}
+      ]
+    },
+    {
+      "qText": "Which data structure is used for balancing of symbols?",
+      "Answerq": [
+        {"text": "Stack", "score": 10},
+        {"text": "Queue", "score": 0},
+        {"text": "Tree", "score": 0},
+        {"text": "Graph", "score": 0}
+      ]
+    },
+    {
+      "qText": "Which data structure is used in Redo-Undo feature?",
+      "Answerq": [
+        {"text": "Tree", "score": 0},
+        {"text": "Stack", "score": 10},
+        {"text": "Graph", "score": 0},
+        {"text": "Queue", "score": 0}
+      ]
+    },
+    {
+      "qText":
+          "Which of the following data structure is best suited for efficient implementation of Priority Queue?",
+      "Answerq": [
+        {"text": "Array", "score": 0},
+        {"text": "Heap", "score": 10},
+        {"text": "Stack", "score": 0},
+        {"text": "Linked List", "score": 0}
+      ]
+    },
+    {
+      "qText": "Process of removing an element from an empty stack is ::",
+      "Answerq": [
+        {"text": "Removing", "score": 0},
+        {"text": "Underflow", "score": 10},
+        {"text": "Deleting", "score": 0},
+        {"text": "overflow", "score": 0}
+      ]
+    },
+    {
+      "qText": "Queue data structure works on ::",
+      "Answerq": [
+        {"text": "LIFO", "score": 0},
+        {"text": "FIFO", "score": 10},
+        {"text": "FILO", "score": 0},
+        {"text": "None of the above", "score": 0}
+      ]
+    },
+    {
+      "qText": "Kadane algorithm is used to find ::",
+      "Answerq": [
+        {"text": "Max. sum subsequence", "score": 0},
+        {"text": "Max. sum subarray", "score": 10},
+        {"text": "Both", "score": 0},
+        {"text": "None of these", "score": 0}
+      ]
+    },
+    {
+      "qText": "Which of the following is not an in-place algorithm?",
+      "Answerq": [
+        {"text": "Bubble Sort", "score": 0},
+        {"text": "Merge Sort", "score": 10},
+        {"text": "Both", "score": 0},
+        {"text": "None of these", "score": 0}
+      ]
+    },
+    {
+      "qText":
+          "Which of the following traversal outputs the data in sorted order in a BST?",
+      "Answerq": [
+        {"text": "Preorder", "score": 0},
+        {"text": "Inorder", "score": 10},
+        {"text": "Postorder", "score": 0},
+        {"text": "Levelorder", "score": 0}
       ]
     },
   ];
@@ -59,7 +143,9 @@ class _MyAppState extends State<MyApp> {
     if (_i < _questions.length) {
       print("More questions are present!");
     }
+    _questions.shuffle();
     setState(() {
+      //pressed = 0;
       _i = _i + 1;
     });
     print('Answer chosen!');
@@ -72,7 +158,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('My First App:Quiz App'),
+          title: Text('Quiz App'),
         ),
         body: (_i < _questions.length)
             ? Quiz(

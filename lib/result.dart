@@ -7,14 +7,13 @@ class Result extends StatelessWidget {
 
   String get resultRemarks {
     var resultText;
-    if (resultScore == 30) {
-      resultText = "30/30 Excellent Performance !";
-    } else if (resultScore == 20) {
-      resultText = "20/30 Keep it Up !";
-    } else if (resultScore == 10) {
-      resultText = "10/30 Good !";
-    } else {
-      resultText = "Work Hard ! All the Best !";
+
+    if (resultScore >= 90) {
+      resultText = "Excellent Performance!\n" + "Score: $resultScore/120";
+    } else if (resultScore < 90 && resultScore >= 75) {
+      resultText = "Keep it Up!\n" + "Score: $resultScore/120";
+    } else if (resultScore < 75) {
+      resultText = "Good!\n" + "Score: $resultScore/120";
     }
     return resultText;
   }
@@ -30,13 +29,9 @@ class Result extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
       ),
-      //TextButton(
-      //style: TextButton.styleFrom(
-      //textStyle: const TextStyle(fontSize: 20),
-      //),
       const SizedBox(height: 100),
       ClipRRect(
-        borderRadius: BorderRadius.circular(40),
+        borderRadius: BorderRadius.circular(15),
         child: Stack(
           children: <Widget>[
             Positioned.fill(
